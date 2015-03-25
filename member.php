@@ -15,6 +15,7 @@ if($username && $passwd){
         $_SESSION['valid_user']=$username;
     }
     catch(Exception $e){
+        echo $e->getMessage();
         do_html_header('Problem:');
         echo 'You could not be logged in. You must be logged in to view this page.';
         do_html_url('login.php', 'Login');

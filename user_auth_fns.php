@@ -38,17 +38,15 @@ function login($username, $password) {
     $conn = db_connect();
 
     // check if username is unique
-    $result = $conn->query("select * from user
-                         where username='".$username."'
-                         and passwd = sha1('".$password."')");
+    $result = $conn->query("select * from user where username='".$username."'and password = sha1('".$password."')");
     if (!$result) {
-        throw new Exception('Could not log you in.');
+        throw new Exception('Could not log you in 1.');
     }
 
     if ($result->num_rows>0) {
         return true;
     } else {
-        throw new Exception('Could not log you in.');
+        throw new Exception('Could not log you in 2.');
     }
 }
 
